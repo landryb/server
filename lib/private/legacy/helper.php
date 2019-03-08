@@ -261,6 +261,7 @@ class OC_Helper {
 			if ($bytesWritten === false
 				|| ($bytesWritten < $bufSize && $bytesWritten < strlen($buf))
 			) {
+				\OC::$server->getLogger()->error('streamCopy failed: $bytesWritten: ' . (($bytesWritten === false) ? 'false' : $bytesWritten ) . ' $bufSize: ' . $bufSize  . ' strlen($buf): ' . strlen($buf) . ' $count: ' . $count);
 				// write error, could be disk full ?
 				$result = false;
 				break;
