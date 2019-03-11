@@ -874,7 +874,16 @@
 			else {
 				files = _.pluck(this.getSelectedFiles(), 'name');
 			}
+			sizes = _.pluck(this.getSelectedFiles(), 'size');
+			const reducer = (accumulator, currentValue) => accumulator + currentValue;
+			var size = sizes.reduce(reducer);
 
+			// file bigger than threshold, and not a single file
+			if (size > Math.Pow(1024,3) && !(files.length == 1 && this.getSelectedFiles()[0].type == 'file')) {
+				alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
+				return false;
+			}
+			console.log("allowed download size:" + size)
 			// don't allow a second click on the download action
 			if(this.fileMultiSelectMenu.isDisabled('download')) {
 				return false;
