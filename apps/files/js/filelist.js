@@ -883,7 +883,6 @@
 				alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
 				return false;
 			}
-			console.log("allowed download size:" + size)
 			// don't allow a second click on the download action
 			if(this.fileMultiSelectMenu.isDisabled('download')) {
 				return false;
