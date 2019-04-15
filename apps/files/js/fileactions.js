@@ -602,7 +602,7 @@
 					var downloadFileaction = $(context.$file).find('.fileactions .action-download');
 
 					if (isDir && context.$file.attr('data-size') >= Math.pow(1024,3)) {
-						alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
+						alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB, limité à 1GB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
 						return;
 					}
 					// don't allow a second click on the download action

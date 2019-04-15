@@ -880,7 +880,7 @@
 
 			// file bigger than threshold, and not a single file
 			if (size > Math.pow(1024,3) && !(files.length == 1 && this.getSelectedFiles()[0].type == 'file')) {
-				alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
+				alert("Taille de téléchargement trop importante (" + Math.round(context.$file.attr('data-size')/(1024*1024)) + "MB, limité à 1GB), merci d'utiliser une autre méthode comme WinSCP pour télécharger plusieurs fichiers de taille importante");
 				return false;
 			}
 			// don't allow a second click on the download action
