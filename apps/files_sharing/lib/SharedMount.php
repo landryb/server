@@ -116,7 +116,11 @@ class SharedMount extends MountPoint implements MoveableMount {
 		);
 
 		if ($newMountPoint !== $share->getTarget()) {
-			$this->updateFileTarget($newMountPoint, $share);
+			if (strpos($share->getTarget(),'/',1)) {
+				return $share->getTarget();
+			} else {
+				$this->updateFileTarget($newMountPoint, $share);
+			}
 		}
 
 		return $newMountPoint;
