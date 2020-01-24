@@ -505,8 +505,9 @@ class ShareController extends AuthPublicShareController {
 			if ($this->federatedShareProvider->isOutgoingServer2serverShareEnabled()) {
 				$responseComposer[] = $externalShare;
 			}
-
-			$response->setHeaderActions($responseComposer);
+			if (!$shareIsFolder or $shareTmpl['nonHumanFileSize'] <= 1024**3) {
+				$response->setHeaderActions($responseComposer);
+			}
 		}
 
 		$response->setContentSecurityPolicy($csp);
